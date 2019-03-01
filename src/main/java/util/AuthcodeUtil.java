@@ -9,7 +9,7 @@ import org.apache.commons.codec.binary.Base64;
 
 public class AuthcodeUtil {
 
-	public static String Encode(String source, String key) {
+	public static String encode(String source, String key) {
 		if (source == null || key == null) {
 			try {
 				return "";
@@ -31,7 +31,7 @@ public class AuthcodeUtil {
 		return null;
 	}
 
-	public static String Decode(String source, String key) {
+	public static String decode(String source, String key) {
 		if (source == null || key == null) {
 			try {
 				return "";
@@ -42,7 +42,13 @@ public class AuthcodeUtil {
 		key = MD52(key);
 		String keya = MD52(CutString(key, 0, 16));
 		String keyb = MD52(CutString(key, 16, 16));
+
+		// String cryptkey = keya + MD52(keya + (4 > null ? CutString(source, 0, 4) :
+		// bi_常量类.f6358b_空串));
+
 		String cryptkey = keya + MD52(keya + CutString(source, 0, 4));
+//		String cryptkey = keya + MD52(keya);
+
 		String result = new String(RC4(Base64.decodeBase64(CutString(source, 4)), cryptkey));
 		if (CutString(result, 10, 16).equals(CutString(MD52(CutString(result, 26) + keyb), 0, 16))) {
 			return CutString(result, 26);
