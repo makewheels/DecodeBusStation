@@ -44,8 +44,8 @@ public class Start {
 	}
 
 	public static void main(String[] args) {
-		String baseFilePath = "D:\\逆向\\材料\\胜利的果实：站点名\\哈尔滨";
-		Collection<File> listFiles = FileUtils.listFiles(new File("D:\\逆向\\材料\\haerbinisba"), null, false);
+		String baseFilePath = "D:\\逆向\\材料\\胜利的果实：站点名\\大庆";
+		Collection<File> listFiles = FileUtils.listFiles(new File("D:\\逆向\\材料\\daqingisba"), null, false);
 		for (File file : listFiles) {
 			String filename = file.getName();
 			String busName = filename.substring(0, filename.lastIndexOf("."));
@@ -54,7 +54,7 @@ public class Start {
 			try {
 				stationArray = parseStationArray(result);
 			} catch (Exception e) {
-				System.out.println(filename);
+				System.out.println("错误，文件名：" + filename);
 				e.printStackTrace();
 			}
 			File saveJsonFile = new File(baseFilePath + File.separator + busName + ".json");
