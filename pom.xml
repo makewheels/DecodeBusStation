@@ -29,5 +29,12 @@
 			<version>1.2.56</version>
 		</dependency>
 
+		<!-- 易安卓框架，是手动安装到本地maven仓库的 -->
+		<dependency>
+			<groupId>com.e4a</groupId>
+			<artifactId>runtime</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
 	</dependencies>
 </project>

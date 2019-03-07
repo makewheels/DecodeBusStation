@@ -9,8 +9,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import com.alibaba.fastjson.JSON;
-
-import util.AuthcodeUtil;
+import com.e4a.runtime.Authcode;
 
 public class Start {
 
@@ -20,9 +19,9 @@ public class Start {
 	 * @param file
 	 * @return
 	 */
-	private static String decodeAuthcodeFile(File file) {
+	public static String decodeAuthcodeFile(File file) {
 		try {
-			return AuthcodeUtil.decode(FileUtils.readFileToString(file, Charset.defaultCharset().name()),
+			return Authcode.Decode(FileUtils.readFileToString(file, Charset.defaultCharset().name()),
 					"199071lh@zhaoqianwangpengluzhipengliuxueyingzhangdeiqian");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -36,7 +35,7 @@ public class Start {
 	 * @param decode
 	 * @return
 	 */
-	private static String[] parseStationArray(String decode) {
+	public static String[] parseStationArray(String decode) {
 		String replace = decode.replace("\r\n", "");
 		String substringBetween = StringUtils.substringBetween(replace, "路开", "路束");
 		String deleteEnd = substringBetween.substring(0, substringBetween.length() - 2);

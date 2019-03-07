@@ -1,12 +1,20 @@
 package util;
 
 import java.io.UnsupportedEncodingException;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
 import org.apache.commons.codec.binary.Base64;
 
+/**
+ * 易安卓框架Auth加解密操作<br>
+ * 从反编译代码中，修改而得的
+ * 
+ * @author Administrator
+ *
+ */
 public class AuthcodeUtil {
 
 	public static String encode(String source, String key) {
@@ -163,4 +171,5 @@ public class AuthcodeUtil {
 	private static int toInt(byte b) {
 		return (b + 256) % 256;
 	}
+
 }
